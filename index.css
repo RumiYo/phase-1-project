@@ -1,0 +1,10 @@
+img{
+    width: 180px;
+}
+
+.cocktailThumbnail {
+    width: 200px;
+    text-align: center;
+    display: block;
+    float: left;
+}
