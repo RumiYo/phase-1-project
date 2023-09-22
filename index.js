@@ -12,13 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //get ingredient input value and get data 
     const ingredientForm = document.querySelector('#IngredientSearch');
-    console.log(ingredientForm)
     ingredientForm.addEventListener('submit',(e) =>{
         e.preventDefault()
         const ingredient = e.target.IngredientName.value;
         fetchDataWithIngredientName(ingredient);
         document.querySelector('#CocktailName').value = '';
     })
+
 })
 
 //Call API to get cocktaillist from input cocktail name
@@ -27,7 +27,6 @@ function fetchDataWithDrinkName(name){
     .then(resp => resp.json())
     .then(data => {
         const cocktailsArr = data.drinks;
-        console.log(cocktailsArr);
         displayDrinkList(cocktailsArr)
     })
 }
@@ -38,7 +37,6 @@ function fetchDataWithIngredientName(name){
     .then(resp => resp.json())
     .then(data => {
         const cocktailsArr = data.drinks;
-        console.log(cocktailsArr);
         displayDrinkList(cocktailsArr)
     })
 }
@@ -47,7 +45,6 @@ function fetchDataWithIngredientName(name){
 function displayDrinkList(arr){
     document.querySelector('#SearchResult').innerHTML = '';
     arr.forEach(element => {
-            console.log(element.strDrink,element.strDrinkThumb);
             const card = document.createElement('div');
             card.className = 'cocktailThumbnail'
             card.innerHTML = `
@@ -57,6 +54,15 @@ function displayDrinkList(arr){
             document.querySelector('#SearchResult').appendChild(card)
         }
     )   
+    mouseOverEvent();
 }
 
+function mouseOverEvent(){
+    const allCards = document.querySelectorAll('.cocktailThumbnail');
+    allCards.forEach(card => {
+        card.addEventListener('mouseover', e => {
+            console.log('mouseover!');
+        })
+    })
+}
 
