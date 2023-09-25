@@ -62,6 +62,7 @@ function displayDrinkList(arr){
     )  
 }
 
+//mouseover, get cocktail name and show recipe
 function mouseOverEvent(arr){
     const allCards = document.querySelectorAll('.thumbnail');
     allCards.forEach(card => {
@@ -73,6 +74,7 @@ function mouseOverEvent(arr){
     })
 }
 
+//show recipe
 function displayRecipe(arr,cocktailName){
     let cocktailInstruction ='';
     let cocktailIngredients = [];
@@ -85,5 +87,11 @@ function displayRecipe(arr,cocktailName){
         return;
     })
     console.log(cocktailInstruction);
+    const recipeCard = document.createElement('div');
+    recipeCard.setAttribute('id', 'overlay');
+    recipeCard.innerHTML = `
+        <p>${cocktailInstruction}</p>
+    `
+    document.querySelector(`#${CSS.escape(cocktailName)}`).appendChild(recipeCard)
 
 }
