@@ -22,7 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ingredientForm.addEventListener('submit',(e) =>{
         e.preventDefault()
         const ingredient = e.target.IngredientName.value;
-        fetchDataWithIngredientName(ingredient).then(cocktailsArr => displayDrinkList(cocktailsArr));
+        fetchDataWithIngredientName(ingredient)
+        .then(cocktailsArr => {
+            displayDrinkList(cocktailsArr)
+        });
         document.querySelector('#CocktailName').value = '';
     })
 
@@ -84,6 +87,18 @@ function displayRecipe(arr,cocktailName){
         if(ele.strDrink===cocktailName){
             cocktailInstruction = ele.strInstructions;
             console.log(ele)
+            cocktailIngredients.push(
+                {ingredient: ele.strIngredient1, measure: ele.strMeasure1},
+                {ingredient: ele.strIngredient2, measure: ele.strMeasure2},
+                {ingredient: ele.strIngredient3, measure: ele.strMeasure3},
+                {ingredient: ele.strIngredient4, measure: ele.strMeasure4},
+                {ingredient: ele.strIngredient5, measure: ele.strMeasure5},
+                {ingredient: ele.strIngredient6, measure: ele.strMeasure6},
+                {ingredient: ele.strIngredient7, measure: ele.strMeasure7},
+                {ingredient: ele.strIngredient8, measure: ele.strMeasure8},
+                {ingredient: ele.strIngredient9, measure: ele.strMeasure9}
+                );
+            console.log(cocktailIngredients)
             return cocktailInstruction;
         }
         return;
