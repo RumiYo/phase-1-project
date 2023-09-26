@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(cocktailsArr => {
             displayDrinkList(cocktailsArr)
             mouseOverEvent(cocktailsArr) 
+            mouseLeaveEvent()
+
         })
         document.querySelector('#IngredientName').value = '';
     })
@@ -93,5 +95,14 @@ function displayRecipe(arr,cocktailName){
         <p>${cocktailInstruction}</p>
     `
     document.querySelector(`#${CSS.escape(cocktailName)}`).appendChild(recipeCard)
+}
 
+//hide recipe when mouse leave
+function mouseLeaveEvent(){
+    const allCards = document.querySelectorAll('.thumbnail');
+    allCards.forEach(card => {
+        card.addEventListener('mouseleave', e => {
+            console.log(e.target.id)
+        })
+    })  
 }
