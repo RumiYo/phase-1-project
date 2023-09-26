@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const cocktailName = e.target.CocktailName.value;
         fetchDataWithDrinkName(cocktailName)
         .then(cocktailsArr => {
-            displayDrinkList(cocktailsArr)
-            mouseOverEvent(cocktailsArr) 
-            mouseLeaveEvent()
-
+            displayDrinkList(cocktailsArr);
+            mouseOverEvent(cocktailsArr);
         })
+
+
+       
         document.querySelector('#IngredientName').value = '';
     })
 
@@ -23,8 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const ingredient = e.target.IngredientName.value;
         fetchDataWithIngredientName(ingredient)
         .then(cocktailsArr => {
-            displayDrinkList(cocktailsArr)
-        });
+            displayDrinkList(cocktailsArr);
+            mouseOverEvent(cocktailsArr);
+        })
+        .then();
         document.querySelector('#CocktailName').value = '';
     })
 
@@ -60,6 +63,7 @@ function displayDrinkList(arr){
             card.innerHTML = `
                 <img class="${element.strDrink}" src=${element.strDrinkThumb} >
                 <p class="${element.strDrink}">${element.strDrink}</p>
+                <div class='recipeDetail'></div>
             `
             document.querySelector('#SearchResult').appendChild(card)
         }
@@ -72,9 +76,13 @@ function mouseOverEvent(arr){
     allCards.forEach(card => {
         card.addEventListener('mouseenter', e => {
             const cocktailName = e.target.id;
-            displayRecipe(arr,cocktailName);
+            fetchDataWithDrinkName(cocktailName)
+            .then(cocktailsArr => {
+                displayRecipe(cocktailsArr,cocktailName)
+            });
         })
     })
+    mouseLeaveEvent()
 }
 
 //show recipe
@@ -84,7 +92,6 @@ function displayRecipe(arr,cocktailName){
     arr.forEach(ele => {
         if(ele.strDrink===cocktailName){
             cocktailInstruction = ele.strInstructions;
-            console.log(ele)
             cocktailIngredients.push(
                 {ingredient: ele.strIngredient1, measure: ele.strMeasure1},
                 {ingredient: ele.strIngredient2, measure: ele.strMeasure2},
@@ -96,21 +103,25 @@ function displayRecipe(arr,cocktailName){
                 {ingredient: ele.strIngredient8, measure: ele.strMeasure8},
                 {ingredient: ele.strIngredient9, measure: ele.strMeasure9}
                 );
-            console.log(cocktailIngredients)
             return cocktailInstruction;
             return cocktailIngredients;
         }
         return;
     })
-    console.log(cocktailInstruction);
-    const recipeCard = document.createElement('div');
-    recipeCard.setAttribute('id', 'overlay');
-    recipeCard.innerHTML = `
+    document.querySelector(`div#${CSS.escape(cocktailName)} div.recipeDetail`).innerHTML = `
         <p>${cocktailInstruction}</p>
-        <ol id='ingredients'>
-        </ol>
+        <ol id='ingredients'></ol>
     `
-    document.querySelector(`#${CSS.escape(cocktailName)}`).appendChild(recipeCard);
+
+    // const recipeCard = document.createElement('div');
+    // recipeCard.setAttribute('class', 'recipeDetail')
+    // // recipeCard.className = cocktailName;
+    // recipeCard.innerHTML = `
+    //     <p>${cocktailInstruction}</p>
+    //     <ol id='ingredients'>
+    //     </ol>
+    // `
+    // document.querySelector(`#${CSS.escape(cocktailName)}`).appendChild(recipeCard);
 
     for(let i=0 ; i < cocktailIngredients.length ; i++){
         if(cocktailIngredients[i].ingredient!==null){
@@ -118,10 +129,9 @@ function displayRecipe(arr,cocktailName){
             ingredientsAndMeasure.innerHTML = `
             ${cocktailIngredients[i].ingredient} ( ${cocktailIngredients[i].measure} )
             `
-            document.querySelector('#ingredients').appendChild(ingredientsAndMeasure);
+            document.querySelector(`div#${CSS.escape(cocktailName)} ol#ingredients`).appendChild(ingredientsAndMeasure);
         }
     }
-
 }
 
 //hide recipe when mouse leave
@@ -131,7 +141,7 @@ function mouseLeaveEvent(){
         card.addEventListener('mouseleave', e => {
             console.log(e.target.id)
             const cocktailName = e.target.id;
-            document.querySelector(`div#${CSS.escape(cocktailName)} div#overlay`).remove()
+            document.querySelector(`div#${CSS.escape(cocktailName)} div.recipeDetail`).innerHTML = ''
         })
     })  
 }

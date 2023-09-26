@@ -1,5 +1,5 @@
 img{
-    width: 200px;
+    width: 180px;
 }
 
 .thumbnail {
@@ -7,4 +7,5 @@ img{
     text-align: center;
     display: block;
     float: left;
+    margin: 60px;
 }
