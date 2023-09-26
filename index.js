@@ -103,6 +103,8 @@ function mouseLeaveEvent(){
     allCards.forEach(card => {
         card.addEventListener('mouseleave', e => {
             console.log(e.target.id)
+            const cocktailName = e.target.id;
+            document.querySelector(`div#${CSS.escape(cocktailName)} div#overlay`).remove()
         })
     })  
 }
