@@ -62,7 +62,7 @@ function displayDrinkList(arr){
             card.setAttribute('id',`${element.strDrink}`)
             card.innerHTML = `
                 <img class="${element.strDrink}" src=${element.strDrinkThumb} >
-                <p class="${element.strDrink}">${element.strDrink}</p>
+                <h3 class="${element.strDrink}">${element.strDrink}</h3>
                 <div class='recipeDetail'></div>
             `
             document.querySelector('#SearchResult').appendChild(card)
@@ -79,6 +79,7 @@ function mouseOverEvent(arr){
             fetchDataWithDrinkName(cocktailName)
             .then(cocktailsArr => {
                 displayRecipe(cocktailsArr,cocktailName)
+
             });
         })
     })
@@ -113,16 +114,6 @@ function displayRecipe(arr,cocktailName){
         <ol id='ingredients'></ol>
     `
 
-    // const recipeCard = document.createElement('div');
-    // recipeCard.setAttribute('class', 'recipeDetail')
-    // // recipeCard.className = cocktailName;
-    // recipeCard.innerHTML = `
-    //     <p>${cocktailInstruction}</p>
-    //     <ol id='ingredients'>
-    //     </ol>
-    // `
-    // document.querySelector(`#${CSS.escape(cocktailName)}`).appendChild(recipeCard);
-
     for(let i=0 ; i < cocktailIngredients.length ; i++){
         if(cocktailIngredients[i].ingredient!==null){
             const ingredientsAndMeasure = document.createElement('li');
@@ -130,6 +121,7 @@ function displayRecipe(arr,cocktailName){
             ${cocktailIngredients[i].ingredient} ( ${cocktailIngredients[i].measure} )
             `
             document.querySelector(`div#${CSS.escape(cocktailName)} ol#ingredients`).appendChild(ingredientsAndMeasure);
+            document.querySelector(`div#${CSS.escape(cocktailName)}`).style.background = '#E9EDC9';
         }
     }
 }
@@ -141,7 +133,8 @@ function mouseLeaveEvent(){
         card.addEventListener('mouseleave', e => {
             console.log(e.target.id)
             const cocktailName = e.target.id;
-            document.querySelector(`div#${CSS.escape(cocktailName)} div.recipeDetail`).innerHTML = ''
+            document.querySelector(`div#${CSS.escape(cocktailName)} div.recipeDetail`).innerHTML = '';
+            document.querySelector(`div#${CSS.escape(cocktailName)}`).style.background = '';
         })
     })  
 }

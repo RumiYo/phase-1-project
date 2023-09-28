@@ -1,11 +1,46 @@
-img{
-    width: 180px;
+body {
+    background-color: #fefae0;
+    color: #283618;
+    font-family : Helvetica;
 }
 
+h1{
+    text-align: center;
+}
+
+img{
+    width: 180px;
+    margin:10px;
+}
+.Search {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#NameSearch{
+    grid-column: 1;
+    align: center;
+    padding: 20px;
+
+}
+#IngredientSearch{
+    grid-column: 2;    
+    align: center;
+    padding: 20px;
+}
+
+.List{
+    text-align: center;
+}
+
+
 .thumbnail {
-    width: 230px;
+    width: 250px;
     text-align: center;
     display: block;
     float: left;
-    margin: 60px;
+    margin: 50px;
 }

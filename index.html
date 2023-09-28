@@ -9,21 +9,23 @@
     <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
     <h1>Cocktail Recipe Search</h1>
-    <div id="NameSearch">
-        <h3>Search with Cocktail Name</h3>
-        <form>
-            <input type="text" id="CocktailName" name="CocktailName" placeholder="Cocktail Name">
+    <div class="Search">
+        <div id="NameSearch">
+            <h3>Search with Cocktail Name</h3>
+            <form>
+                <input type="text" id="CocktailName" name="CocktailName" placeholder="Cocktail Name">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+        <div id="IngredientSearch">
+            <h3>Search with Ingredient</h3>        
+            <form>
+            <input type="text" id="IngredientName" name="IngredientName" placeholder="Ingredient Name">
             <input type="submit" value="Search">
         </form>
     </div>
-    <div id="IngredientSearch">
-        <h3>Search with Ingredient</h3>        
-        <form>
-        <input type="text" id="IngredientName" name="IngredientName" placeholder="Ingredient Name">
-        <input type="submit" value="Search">
-    </form>
     </div>
-    <h3>List of drinks</h3>
+    <h2 class="List">List of drinks</h2>
     <div id="SearchResult">
     </div>
     </body>
