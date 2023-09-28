@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('We are connected!');
 
     //get cocktail input value and get data 
-    const cocktailNameForm = document.querySelector('#NameSearch');
+    const cocktailNameForm = document.querySelector('#nameSearch');
     cocktailNameForm.addEventListener('submit',(e) =>{
         e.preventDefault()
-        const cocktailName = e.target.CocktailName.value;
+        const cocktailName = e.target.cocktailName.value;
         fetchDataWithDrinkName(cocktailName)
         .then(cocktailsArr => {
             displayDrinkList(cocktailsArr);
@@ -14,21 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
        
-        document.querySelector('#IngredientName').value = '';
+        document.querySelector('#ingredientName').value = '';
     })
 
     //get ingredient input value and get data 
-    const ingredientForm = document.querySelector('#IngredientSearch');
+    const ingredientForm = document.querySelector('#ingredientSearch');
     ingredientForm.addEventListener('submit',(e) =>{
         e.preventDefault()
-        const ingredient = e.target.IngredientName.value;
+        const ingredient = e.target.ingredientName.value;
         fetchDataWithIngredientName(ingredient)
         .then(cocktailsArr => {
             displayDrinkList(cocktailsArr);
             mouseOverEvent(cocktailsArr);
         })
         .then();
-        document.querySelector('#CocktailName').value = '';
+        document.querySelector('#cocktailName').value = '';
     })
 
 })
@@ -55,7 +55,7 @@ function fetchDataWithIngredientName(name){
 
 //Display list of cocktails
 function displayDrinkList(arr){
-    document.querySelector('#SearchResult').innerHTML = '';
+    document.querySelector('#searchResult').innerHTML = '';
     arr.forEach(element => {
             const card = document.createElement('div');
             card.className = 'thumbnail'
@@ -65,7 +65,7 @@ function displayDrinkList(arr){
                 <h3 class="${element.strDrink}">${element.strDrink}</h3>
                 <div class='recipeDetail'></div>
             `
-            document.querySelector('#SearchResult').appendChild(card)
+            document.querySelector('#searchResult').appendChild(card)
         }
     )  
 }
