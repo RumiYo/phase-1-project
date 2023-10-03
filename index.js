@@ -73,9 +73,10 @@ function displayDrinkList(arr){
 //mouseover, get cocktail name and show recipe
 function mouseOverEvent(arr){
     const allCards = document.querySelectorAll('.thumbnail');
+    let cocktailName = ''
     allCards.forEach(card => {
         card.addEventListener('mouseenter', e => {
-            const cocktailName = e.target.id;
+            cocktailName = e.target.id;
             fetchDataWithDrinkName(cocktailName)
             .then(cocktailsArr => {
                 displayRecipe(cocktailsArr,cocktailName)
