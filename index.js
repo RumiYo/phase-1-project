@@ -1,33 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('We are connected!');
 
     //get cocktail input value and get data 
     const cocktailNameForm = document.querySelector('#nameSearch');
     cocktailNameForm.addEventListener('submit',(e) =>{
-        e.preventDefault()
+        e.preventDefault();
         const cocktailName = e.target.cocktailName.value;
         fetchDataWithDrinkName(cocktailName)
         .then(cocktailsArr => {
             displayDrinkList(cocktailsArr);
             mouseOverEvent(cocktailsArr);
-        })
-
-
-       
+            mouseLeaveEvent();
+        })       
         document.querySelector('#ingredientName').value = '';
     })
 
     //get ingredient input value and get data 
     const ingredientForm = document.querySelector('#ingredientSearch');
     ingredientForm.addEventListener('submit',(e) =>{
-        e.preventDefault()
+        e.preventDefault();
         const ingredient = e.target.ingredientName.value;
         fetchDataWithIngredientName(ingredient)
         .then(cocktailsArr => {
             displayDrinkList(cocktailsArr);
             mouseOverEvent(cocktailsArr);
+            mouseLeaveEvent();
         })
-        .then();
         document.querySelector('#cocktailName').value = '';
     })
 
@@ -65,7 +62,7 @@ function displayDrinkList(arr){
                 <h3 class="${element.strDrink}">${element.strDrink}</h3>
                 <div class='recipeDetail'></div>
             `
-            document.querySelector('#searchResult').appendChild(card)
+            document.querySelector('#searchResult').appendChild(card);
         }
     )  
 }
@@ -84,7 +81,6 @@ function mouseOverEvent(arr){
             });
         })
     })
-    mouseLeaveEvent()
 }
 
 //show recipe
@@ -132,7 +128,6 @@ function mouseLeaveEvent(){
     const allCards = document.querySelectorAll('.thumbnail');
     allCards.forEach(card => {
         card.addEventListener('mouseleave', e => {
-            console.log(e.target.id)
             const cocktailName = e.target.id;
             document.querySelector(`div#${CSS.escape(cocktailName)} div.recipeDetail`).innerHTML = '';
             document.querySelector(`div#${CSS.escape(cocktailName)}`).style.background = '';
