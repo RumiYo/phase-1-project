@@ -6,6 +6,7 @@
 * [App](#app) 
 * [Technologies](#technologies)
 * [API](#api)
+* [Recourses](#recourses)
   
 ## Phase1 project requirements
 
@@ -109,4 +110,4 @@ Free API | TheCocktailDB.com  https://www.thecocktaildb.com/api.php
 
 ## Recourses 
 * [Github Docs: Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* 
+  
