@@ -3,6 +3,7 @@
 ## Table of Contents
 * [Phase1 project requirement](https://github.com/RumiYo/phase-1-project/edit/main/README.md#phase1-project-requirements)
 * [Story of project](https://github.com/RumiYo/phase-1-project/edit/main/README.md#story-of-project)
+* [App](https://github.com/RumiYo/phase-1-project/edit/main/README.md#app) 
 * [Technologies](https://github.com/RumiYo/phase-1-project/edit/main/README.md#technologies)
 * [API](https://github.com/RumiYo/phase-1-project/edit/main/README.md#api)
   
@@ -28,6 +29,8 @@ My project pitch idea is [here](
 https://docs.google.com/document/d/1649pE2qsDGcOcG1GSTfLSDCm577GFykwjH1H5BYZhhI/edit?usp=sharing).
 
 ## App
+We just type cocktail names or ingredient names in the search bars and the search results will be shown at the bottom of the page.  When we mouse over, we can see their recipe.
+
 [Cocktail-Search.webm](https://github.com/RumiYo/phase-1-project/assets/131638126/98aa7035-7c0e-4607-900d-fbf422829612)
 
 
