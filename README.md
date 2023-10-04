@@ -1,11 +1,11 @@
 # Cocktail recipe search
 
 ## Table of Contents
-* [Phase1 project requirement](https://github.com/RumiYo/phase-1-project/edit/main/README.md#phase1-project-requirements)
-* [Story of project](https://github.com/RumiYo/phase-1-project/edit/main/README.md#story-of-project)
-* [App](https://github.com/RumiYo/phase-1-project/edit/main/README.md#app) 
-* [Technologies](https://github.com/RumiYo/phase-1-project/edit/main/README.md#technologies)
-* [API](https://github.com/RumiYo/phase-1-project/edit/main/README.md#api)
+* [Phase1 project requirement](#phase1-project-requirements)
+* [Story of project](#story-of-project)
+* [App](#app) 
+* [Technologies](#technologies)
+* [API](#api)
   
 ## Phase1 project requirements
 
@@ -36,6 +36,8 @@ We just type cocktail names or ingredient names in the search bars and the searc
 
 
 ## Technologies
+
+
 
 ## API
 The database I used
