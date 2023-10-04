@@ -35,7 +35,7 @@ We just type cocktail names or ingredient names in the search bars and the searc
 
 
 ## Technologies
-#### fetch
+#### `fetch`
 `fetch` is used to call API and get data.  In this app `fetch` is used in 2 functions (`fetchDataWithDrinkName(name)`, `fetchDataWithIngredientName(name)`).  
 ```
 function fetchDataWithDrinkName(name){
@@ -49,6 +49,57 @@ function fetchDataWithDrinkName(name){
 ```
 
 
+#### `submit` event
+`submit` event is used for `cocktailNameForm` and `ingredientForm` to collect inputs in those forms.
+```
+    const cocktailNameForm = document.querySelector('#nameSearch');
+    cocktailNameForm.addEventListener('submit',(e) =>{
+        e.preventDefault();
+        const cocktailName = e.target.cocktailName.value;
+        fetchDataWithDrinkName(cocktailName)
+        .then(cocktailsArr => {
+            displayDrinkList(cocktailsArr);
+            mouseOverEvent(cocktailsArr);
+            mouseLeaveEvent();
+        })       
+        document.querySelector('#ingredientName').value = '';
+    })
+```
+
+#### `mouseenter` event
+In order to trigger `mouseenter` event and show recipes for each cocktails, `forEach` is used with `mouseenter` eventListener.
+```
+function mouseOverEvent(arr){
+    const allCards = document.querySelectorAll('.thumbnail');
+    let cocktailName = ''
+    allCards.forEach(card => {
+        card.addEventListener('mouseenter', e => {
+            cocktailName = e.target.id;
+            fetchDataWithDrinkName(cocktailName)
+            .then(cocktailsArr => {
+                displayRecipe(cocktailsArr,cocktailName);
+
+            });
+        })
+    })
+}
+```
+
+#### `mouseleave` event
+In order to trigger `mouseleave` for each cocktails, `forEach` is used together as well. Since cocktailName id has spaces ih its value someties `div#${CSS.escape(cocktailName)}` is used to select the whole id information. 
+```
+function mouseLeaveEvent(){
+    const allCards = document.querySelectorAll('.thumbnail');
+    allCards.forEach(card => {
+        card.addEventListener('mouseleave', e => {
+            const cocktailName = e.target.id;
+            document.querySelector(`div#${CSS.escape(cocktailName)} div.recipeDetail`).innerHTML = '';
+            document.querySelector(`div#${CSS.escape(cocktailName)}`).style.background = '';
+        })
+    })  
+}
+```
+
 ## API
 The database I used
 Free API | TheCocktailDB.com  https://www.thecocktaildb.com/api.php
@@ -58,3 +109,4 @@ Free API | TheCocktailDB.com  https://www.thecocktaildb.com/api.php
 
 ## Recourses 
 * [Github Docs: Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* 
