@@ -29,7 +29,7 @@ My project pitch idea is [here](
 https://docs.google.com/document/d/1649pE2qsDGcOcG1GSTfLSDCm577GFykwjH1H5BYZhhI/edit?usp=sharing).
 
 ## App
-We just type cocktail names or ingredient names in the search bars and the search results will be shown at the bottom of the page.  When we mouse over, we can see their recipe.
+When you type cocktail names or ingredient names in the search bars, the search results will be shown at the bottom of the page.  You just need to mouse over and select a cocktail to see the recipe.
 
 [Cocktail-Search.webm](https://github.com/RumiYo/phase-1-project/assets/131638126/98aa7035-7c0e-4607-900d-fbf422829612)
 
