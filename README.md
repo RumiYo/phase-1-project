@@ -68,7 +68,7 @@ function fetchDataWithDrinkName(name){
 ```
 
 #### `mouseenter` event
-In order to trigger `mouseenter` event and show recipes for each cocktails, `forEach` is used with `mouseenter` eventListener.
+In order to trigger `mouseenter` event and show recipes for each cocktail, `forEach` is used with `mouseenter` eventListener.
 ```
 function mouseOverEvent(arr){
     const allCards = document.querySelectorAll('.thumbnail');
@@ -87,7 +87,7 @@ function mouseOverEvent(arr){
 ```
 
 #### `mouseleave` event
-In order to trigger `mouseleave` for each cocktails, `forEach` is used together as well. Since cocktailName id has spaces ih its value someties `div#${CSS.escape(cocktailName)}` is used to select the whole id information. 
+In order to trigger `mouseleave` for each cocktail, `forEach` is used together as well. Since cocktailName id has spaces in its value sometimes `div#${CSS.escape(cocktailName)}` is used to select the whole id information. 
 ```
 function mouseLeaveEvent(){
     const allCards = document.querySelectorAll('.thumbnail');
@@ -110,4 +110,6 @@ Free API | TheCocktailDB.com  https://www.thecocktaildb.com/api.php
 
 ## Recourses 
 * [Github Docs: Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+* [Element: mouseenter event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event)
+
   
