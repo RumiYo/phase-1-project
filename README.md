@@ -27,6 +27,9 @@ I usually drink cocktails at bars but I barely make them at home.  So, I want to
 My project pitch idea is [here](
 https://docs.google.com/document/d/1649pE2qsDGcOcG1GSTfLSDCm577GFykwjH1H5BYZhhI/edit?usp=sharing).
 
+## App
+[Cocktail-Search.webm](https://github.com/RumiYo/phase-1-project/assets/131638126/98aa7035-7c0e-4607-900d-fbf422829612)
+
 
 
 ## Technologies
