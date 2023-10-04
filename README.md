@@ -111,5 +111,6 @@ Free API | TheCocktailDB.com  https://www.thecocktaildb.com/api.php
 ## Recourses 
 * [Github Docs: Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 * [Element: mouseenter event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event)
-
+* [CSS: escape() static method
+](https://developer.mozilla.org/en-US/docs/Web/API/CSS/escape_static)
   
