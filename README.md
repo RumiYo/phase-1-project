@@ -34,14 +34,27 @@ We just type cocktail names or ingredient names in the search bars and the searc
 [Cocktail-Search.webm](https://github.com/RumiYo/phase-1-project/assets/131638126/98aa7035-7c0e-4607-900d-fbf422829612)
 
 
-
 ## Technologies
-
+#### fetch
+`fetch` is used to call API and get data.  In this app `fetch` is used in 2 functions (`fetchDataWithDrinkName(name)`, `fetchDataWithIngredientName(name)`).  
+```
+function fetchDataWithDrinkName(name){
+    return fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
+    .then(resp => resp.json())
+    .then(data => {
+        const cocktailsArr =  data.drinks;
+        return cocktailsArr;
+    })
+}
+```
 
 
 ## API
 The database I used
 Free API | TheCocktailDB.com  https://www.thecocktaildb.com/api.php
 
-1. Search by Cocktail name
-2. Search by ingredient
+1. Search by Cocktail name  https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+2. Search by ingredient  https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+
+## Recourses 
+* [Github Docs: Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
